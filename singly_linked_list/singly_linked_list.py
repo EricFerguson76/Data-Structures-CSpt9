@@ -25,20 +25,18 @@ class LinkedList:
     def add_to_head(self, value):
         new_node = Node(value, self.head)
         self.head = new_node
-        self.length += 1
-        if self.length == 1:
+        if self.length == 0:
             self.tail = new_node
+        self.length += 1
 
     def add_to_tail(self, value):
         new_node = Node(value)
         if self.head is None and self.tail is None:
             self.head = new_node
-            self.tail = new_node
-
         else:
             self.tail.set_next(new_node)
-            self.tail = new_node
-            self.length += 1
+        self.tail = new_node
+        self.length += 1
 
     def remove_head(self):
         # empty LL
