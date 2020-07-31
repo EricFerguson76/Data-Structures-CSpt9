@@ -1,3 +1,4 @@
+
 """
 Binary search trees are a data structure that enforce an ordering over 
 the data they store. That ordering in turn makes it a lot more efficient 
@@ -80,18 +81,35 @@ class BSTNode:
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self):
-        pass
+        queue = []
+        queue.append(self)
+        while len(queue) > 0:
+            current = queue.pop(0)
+            print(current.value)
+        if current.left:
+            queue.append(current.left)
+        if current.right:
+            queue.append(current.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self):
         # use a stack
-        pass
+        stack = []
+        stack.append(self)
+        while len(stack) > 0:
+            current = stack.pop()
+            print(current.value)
+        if current.left:
+            stack.append(current.left)
+        if current.right:
+            stack.append(current.right)
 
     # Stretch Goals -------------------------
     # Note: Research may be required
 
     # Print Pre-order recursive DFT
+
     def pre_order_dft(self):
         pass
 
@@ -116,10 +134,10 @@ bst.insert(2)
 bst.bft_print()
 bst.dft_print()
 
-#print("elegant methods")
-#print("pre order")
-# bst.pre_order_dft()
-#print("in order")
-# bst.in_order_dft()
-#print("post order")
-# bst.post_order_dft()
+print("elegant methods")
+print("pre order")
+bst.pre_order_dft()
+print("in order")
+bst.in_order_print()
+print("post order")
+bst.post_order_dft()
